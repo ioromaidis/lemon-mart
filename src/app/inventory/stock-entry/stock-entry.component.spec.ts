@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { PageNotFoundComponent } from './page-not-found.component'
+import { StockEntryComponent } from './stock-entry.component'
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent
-  let fixture: ComponentFixture<PageNotFoundComponent>
+describe('StockEntryComponent', () => {
+  let component: StockEntryComponent
+  let fixture: ComponentFixture<StockEntryComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageNotFoundComponent],
+      declarations: [StockEntryComponent],
     }).compileComponents()
   })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageNotFoundComponent)
+    fixture = TestBed.createComponent(StockEntryComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

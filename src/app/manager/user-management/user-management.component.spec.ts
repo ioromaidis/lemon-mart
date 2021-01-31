@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { PageNotFoundComponent } from './page-not-found.component'
+import { UserManagementComponent } from './user-management.component'
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent
-  let fixture: ComponentFixture<PageNotFoundComponent>
+describe('UserManagementComponent', () => {
+  let component: UserManagementComponent
+  let fixture: ComponentFixture<UserManagementComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageNotFoundComponent],
+      declarations: [UserManagementComponent],
     }).compileComponents()
   })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageNotFoundComponent)
+    fixture = TestBed.createComponent(UserManagementComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { PageNotFoundComponent } from './page-not-found.component'
+import { NavigationMenuComponent } from './navigation-menu.component'
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent
-  let fixture: ComponentFixture<PageNotFoundComponent>
+describe('NavigationMenuComponent', () => {
+  let component: NavigationMenuComponent
+  let fixture: ComponentFixture<NavigationMenuComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageNotFoundComponent],
+      declarations: [NavigationMenuComponent],
     }).compileComponents()
   })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageNotFoundComponent)
+    fixture = TestBed.createComponent(NavigationMenuComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

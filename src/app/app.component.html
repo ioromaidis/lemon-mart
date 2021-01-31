@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" fxLayoutGap="8px">
   <button mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
@@ -7,10 +7,12 @@
     <h1>LemonMart</h1>
   </a>
   <span class="flex-spacer"></span>
-  <button mat-icon-button>
+  <button routerLink="/user/profile" mat-mini-fab matTooltip="Profile"
+    aria-label="User Profile">
     <mat-icon>account_circle</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button routerLink="/user/logout" mat-mini-fab matTooltip="Logout"
+    aria-label="User Logout">
     <mat-icon>lock_open</mat-icon>
   </button>
 </mat-toolbar>
