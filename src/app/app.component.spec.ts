@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing'
 import { MediaObserver } from '@angular/flex-layout'
 import { MatIconRegistry } from '@angular/material/icon'
 import { DomSanitizer } from '@angular/platform-browser'
-import { RouterTestingModule } from '@angular/router/testing'
 
 import { AppComponent } from './app.component'
 import {
