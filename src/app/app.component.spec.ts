@@ -9,17 +9,18 @@ import {
   MatIconRegistryFake,
   MediaObserverFake,
   commonTestingModules,
+  commonTestingProviders,
 } from './common/common.testing'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [commonTestingModules],
-      providers: [
+      providers: commonTestingProviders.concat([
         { provide: MediaObserver, useClass: MediaObserverFake },
         { provide: MatIconRegistry, useClass: MatIconRegistryFake },
         { provide: DomSanitizer, useClass: DomSanitizerFake },
-      ],
+      ]),
       declarations: [AppComponent],
     }).compileComponents()
   })

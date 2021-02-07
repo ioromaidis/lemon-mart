@@ -1,19 +1,34 @@
-<mat-toolbar color="primary" fxLayoutGap="8px">
-  <button mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <mat-icon svgIcon="lemon"></mat-icon>
-  <a mat-button routerLink="/home">
-    <h1>LemonMart</h1>
-  </a>
-  <span class="flex-spacer"></span>
-  <button routerLink="/user/profile" mat-mini-fab matTooltip="Profile"
-    aria-label="User Profile">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <button routerLink="/user/logout" mat-mini-fab matTooltip="Logout"
-    aria-label="User Logout">
-    <mat-icon>lock_open</mat-icon>
-  </button>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div class="app-container">
+  <mat-toolbar class="app-toolbar" [class.app-is-mobile]="media.isActive('xs')"
+    color="primary" fxLayoutGap="8px" *ngIf="{ status: authService.authStatus$ | async,
+    user: authService.currentUser$ | async } as auth;">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon svgIcon="lemon"></mat-icon>
+    <a mat-button routerLink="/home">
+      <h1>LemonMart</h1>
+    </a>
+    <span class="flex-spacer"></span>
+    <button routerLink="/user/profile" mat-mini-fab matTooltip="Profile"
+      aria-label="User Profile" *ngIf="auth?.status?.isAuthenticated">
+      <img *ngIf="auth?.user?.picture" class="image-cropper"
+        [src]="auth?.user?.picture" />
+      <mat-icon *ngIf="!auth?.user?.picture">account_circle</mat-icon>
+    </button>
+    <button routerLink="/user/logout" mat-mini-fab matTooltip="Logout"
+      aria-label="User Logout" *ngIf="auth?.status?.isAuthenticated">
+      <mat-icon>lock_open</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav #sidenav [mode]="media.isActive('xs') ? 'over' : 'side'"
+      [fixedInViewport]="media.isActive('xs')" fixedTopGap="56" [(opened)]="opened">
+      <app-navigation-menu></app-navigation-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
