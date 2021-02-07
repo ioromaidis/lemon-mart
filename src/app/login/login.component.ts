@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  async login(submittedForm: FormGroup) {
+  async login(submittedForm: FormGroup): Promise<void> {
     this.authService
       .login(submittedForm.value.email, submittedForm.value.password)
       .pipe(catchError((err) => (this.loginError = err)))

@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http'
-import { throwError } from 'rxjs'
+import { Observable, throwError } from 'rxjs'
 
-export function transformError(error: HttpErrorResponse | string) {
+export function transformError(error: HttpErrorResponse | string): Observable<string> {
   let errorMessage = 'An unknown error has occured'
 
   if (typeof error === 'string') {

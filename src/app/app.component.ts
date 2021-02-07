@@ -30,11 +30,11 @@ export class AppComponent implements OnInit, OnDestroy {
     )
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs.unsubscribe()
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subs.sink = combineLatest([
       this.media.asObservable(),
       this.authService.authStatus$,

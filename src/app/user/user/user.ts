@@ -41,6 +41,7 @@ export interface IPhone {
 
 export class User implements IUser {
   constructor(
+    // tslint:disable
     public _id = '',
     public email = '',
     public name = { first: '', middle: '', last: '' } as IName,
@@ -53,7 +54,7 @@ export class User implements IUser {
     public phones: IPhone[] = []
   ) {}
 
-  static Build(user: IUser) {
+  static Build(user: IUser): User {
     if (!user) {
       return new User()
     }

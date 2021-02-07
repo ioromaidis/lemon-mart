@@ -27,7 +27,7 @@ export const defaultAuthStatus: IAuthStatus = {
 export interface IAuthService {
   readonly authStatus$: BehaviorSubject<IAuthStatus>
   readonly currentUser$: BehaviorSubject<IUser>
-  login(email: string, password: string): Observable<void>
+  login(email: string, password: string): Observable<string | void>
   logout(clearToken?: boolean): void
   getToken(): string
 }
@@ -61,7 +61,7 @@ export abstract class AuthService extends CacheService implements IAuthService {
     }
   }
 
-  login(email: string, password: string): Observable<void> {
+  login(email: string, password: string): Observable<string | void> {
     this.clearToken()
 
     const loginResponse$ = this.authProvider(email, password).pipe(

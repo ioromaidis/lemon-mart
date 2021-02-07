@@ -62,14 +62,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     )
   }
 
-  private checkRoleMatch(role: Role, route?: ActivatedRouteSnapshot) {
+  private checkRoleMatch(role: Role, route?: ActivatedRouteSnapshot): boolean {
     if (!route?.data?.expectedRole) {
       return true
     }
     return role === route.data.expectedRole
   }
 
-  private showAlert(isAuth: boolean, roleMatch: boolean) {
+  private showAlert(isAuth: boolean, roleMatch: boolean): void {
     if (!isAuth) {
       this.uiService.showToast('You must login to continue')
     }

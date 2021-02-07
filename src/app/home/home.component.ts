@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { filter, tap } from 'rxjs/operators'
 
 import { AuthService } from '../auth/auth.service'
 
