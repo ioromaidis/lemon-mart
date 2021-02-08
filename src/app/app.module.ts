@@ -1,15 +1,19 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
+import { AngularFireModule } from '@angular/fire'
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { environment } from 'src/environments/environment'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './auth/auth-guard.service'
 import { AuthHttpInterceptor } from './auth/auth-http-interceptor'
-import { InMemoryAuthService } from './auth/auth.inmemory.service'
+import { FirebaseAuthService } from './auth/auth.firebase.service'
 import { AuthService } from './auth/auth.service'
 import { SimpleDialogComponent } from './common/simple-dialog.component'
 import { UiService } from './common/ui.service'
@@ -44,9 +48,12 @@ import { UserModule } from './user/user.module'
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
-    { provide: AuthService, useClass: InMemoryAuthService },
+    { provide: AuthService, useClass: FirebaseAuthService },
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
     UiService,
     AuthGuard,

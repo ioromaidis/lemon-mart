@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "lemon-mart-db5fb"
+  },
+  "targets": {
+    "lemon-mart-db5fb": {
+      "hosting": {
+        "lemon-mart": [
+          "lemon-mart-db5fb"
+        ]
+      }
+    }
   }
 }
