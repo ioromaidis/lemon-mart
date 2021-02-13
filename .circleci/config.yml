@@ -7,6 +7,19 @@ jobs:
     steps:
       - checkout
 
+      - run: npm run style
+      - run: npm run lint
+
+      - run: npm run build:prod
+      - run: npm run test:coverage -- --watch=false
+      - run: npm run e2e
+
+      - run:
+      - run:
+          name: Tar & Gzip compiled app
+          name: Move compiled app to workspace
+          command: tar zcf dist.tar.gz dist/lemon-mart
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
@@ -27,14 +40,14 @@ jobs:
     working_directory: ~/repo
     steps:
       - attach_workspace:
-        at: /tmp/workspace
+          at: /tmp/workspace
       - run: npx vercel --token $VERCEL_TOKEN --platform-version 2
-        --prod /tmp/workspace/dist/lemon-mart --confirm
+          --prod /tmp/workspace/dist/lemon-mart --confirm
 workflows:
   version: 2
   build-and-test:
     jobs:
       - build
       - deploy:
-        requires:
-          - build
+          requires:
+            - build
