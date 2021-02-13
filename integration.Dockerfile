@@ -7,8 +7,6 @@ WORKDIR $BUILDER_SRC_DIR
 COPY . .
 
 # install dependencies and build
-RUN rm -rf node_modules/
-RUN npm install
 RUN npm ci
 RUN npm run style
 RUN npm run lint
