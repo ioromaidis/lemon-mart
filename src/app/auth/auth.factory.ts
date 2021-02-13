@@ -1,8 +1,9 @@
 import { AngularFireAuth } from '@angular/fire/auth'
+
+import { environment } from '../../environments/environment'
 import { AuthMode } from './auth.enum'
 import { FirebaseAuthService } from './auth.firebase.service'
 import { InMemoryAuthService } from './auth.inmemory.service'
-import { environment } from '../../environments/environment'
 
 export function authFactory(
   afAuth: AngularFireAuth
